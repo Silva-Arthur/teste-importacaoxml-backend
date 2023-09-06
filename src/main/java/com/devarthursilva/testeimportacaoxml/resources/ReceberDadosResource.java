@@ -27,7 +27,7 @@ public class ReceberDadosResource {
 		
 		System.out.println("Finalizando requisição");
 		
-		return ResponseEntity.ok().body("{\"Sucesso\": 200");
+		return ResponseEntity.ok().body("Sucesso!");
 	}
 
 }
