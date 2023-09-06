@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.devarthursilva.testeimportacaoxml.domain.Agente;
 
-public class RegionDTO implements Serializable {
+public class RegiaoDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -61,6 +61,12 @@ public class RegionDTO implements Serializable {
 
 	public void setSigla(String sigla) {
 		this.sigla = sigla;
+	}
+
+	@Override
+	public String toString() {
+		return "RegiaoDTO [geracao=" + geracao + ", compra=" + compra + ", precoMedio=" + precoMedio + ", sigla="
+				+ sigla + "]";
 	}
 	
 }

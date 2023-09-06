@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.devarthursilva.testeimportacaoxml.domain.Regiao;
-
 public class AgenteDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,7 +13,7 @@ public class AgenteDTO implements Serializable {
 	
 	//@JsonFormat(pattern = "dd/MM/yyyy")
 	private String data;
-	private List<Regiao> regiao = new ArrayList<>();
+	private List<RegiaoDTO> regiao = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -41,17 +39,17 @@ public class AgenteDTO implements Serializable {
 		this.data = data;
 	}
 
-	public List<Regiao> getRegiao() {
+	public List<RegiaoDTO> getRegiao() {
 		return regiao;
 	}
 
-	public void setRegiao(List<Regiao> regiao) {
+	public void setRegiao(List<RegiaoDTO> regiao) {
 		this.regiao = regiao;
 	}
 
 	@Override
 	public String toString() {
-		return "AgenteDTO [id=" + id + ", codigo=" + codigo + ", data=" + data + ", regiao=" + regiao + "]";
+		return "AgenteDTO [codigo=" + codigo + ", data=" + data + ", regiao=" + regiao + "]";
 	}
-	
+
 }

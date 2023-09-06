@@ -25,16 +25,6 @@ public class Geracao implements Serializable{
 	@JoinColumn(name = "regiao_id")
 	private Regiao regiao;
 
-	private List<BigDecimal> valor = new ArrayList<>();
-
-	public List<BigDecimal> getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor.add(valor);
-	}
-
 	public Long getId() {
 		return id;
 	}

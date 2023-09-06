@@ -3,6 +3,7 @@ package com.devarthursilva.testeimportacaoxml.domain.dtos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PrecoMedioDTO implements Serializable {
@@ -34,7 +35,14 @@ public class PrecoMedioDTO implements Serializable {
 	}
 
 	public void setValor(List<BigDecimal> valor) {
-		this.valor = valor;
+		this.valor.addAll(valor);
 	}
+	
+	@Override
+	public String toString() {
+		return "PrecoMedioDTO [valor=" + valor + "]";
+	}
+	
+	
 
 }

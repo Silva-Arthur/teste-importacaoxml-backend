@@ -12,11 +12,11 @@ import com.devarthursilva.testeimportacaoxml.domain.dtos.AgenteDTO;
 import com.devarthursilva.testeimportacaoxml.domain.dtos.ReceptorDTO;
 
 @RestController
-@RequestMapping
+@RequestMapping(value = "/upload")
 public class ReceberDadosResource {
 	
 	@PostMapping
-	public ResponseEntity<String> receberDados(@RequestBody List<ReceptorDTO> agente) {
+	public ResponseEntity<String> receberDados(@RequestBody List<AgenteDTO> agente) {
 		System.out.println( agente);
 		
 		return ResponseEntity.ok().body("Sucesso!");

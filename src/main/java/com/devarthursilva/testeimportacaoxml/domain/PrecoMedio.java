@@ -20,20 +20,9 @@ public class PrecoMedio implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private List<BigDecimal> valor = new ArrayList<>();
-	
 	@OneToOne
 	@JoinColumn(name = "regiao_id")
 	private Regiao regiao;
-
-	public List<BigDecimal> getValor() {
-		return valor;
-	}
-
-	public void setValor(List<BigDecimal> valor) {
-		this.valor = valor;
-	}
 
 	public Long getId() {
 		return id;
