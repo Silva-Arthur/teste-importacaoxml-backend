@@ -3,7 +3,6 @@ package com.devarthursilva.testeimportacaoxml.domain.dtos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GeracaoDTO implements Serializable{

@@ -1,8 +1,6 @@
 package com.devarthursilva.testeimportacaoxml.domain;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,7 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class PrecoMedio implements Serializable{
@@ -20,9 +21,23 @@ public class PrecoMedio implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@OneToOne
 	@JoinColumn(name = "regiao_id")
 	private Regiao regiao;
+	
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name = "valor")
+	private List<Valor> valores;
+	
+	public void setValores(List<Valor> valores) {
+		this.valores = valores;
+	}
+	
+	public List<Valor> getValores() {
+		return valores;
+	}
 
 	public Long getId() {
 		return id;

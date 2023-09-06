@@ -1,43 +1,37 @@
 package com.devarthursilva.testeimportacaoxml.domain;
 
 import java.io.Serializable;
-import java.util.List;
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Compra implements Serializable {
+public class Valor implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@OneToOne
-	@JoinColumn(name = "regiao_id")
-	private Regiao regiao;
 	
-	@JsonIgnore
-	@OneToMany
-	@JoinColumn(name = "valor")
-	private List<Valor> valores;
+	private BigDecimal valor;
 	
-	public void setValores(List<Valor> valores) {
-		this.valores = valores;
-	}
+	@ManyToOne
+	@JoinColumn(name = "compra_id")
+	private Compra compra;
 	
-	public List<Valor> getValores() {
-		return valores;
-	}
+	@ManyToOne
+	@JoinColumn(name = "geracao_id")
+	private Geracao geracao;
+	
+	@ManyToOne
+	@JoinColumn(name = "preco_medio_id")
+	private PrecoMedio precoMedio;
 
 	public Long getId() {
 		return id;
@@ -47,12 +41,36 @@ public class Compra implements Serializable {
 		this.id = id;
 	}
 
-	public Regiao getRegiao() {
-		return regiao;
+	public BigDecimal getValor() {
+		return valor;
 	}
 
-	public void setRegiao(Regiao regiao) {
-		this.regiao = regiao;
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public Compra getCompra() {
+		return compra;
+	}
+
+	public void setCompra(Compra compra) {
+		this.compra = compra;
+	}
+
+	public Geracao getGeracao() {
+		return geracao;
+	}
+
+	public void setGeracao(Geracao geracao) {
+		this.geracao = geracao;
+	}
+
+	public PrecoMedio getPrecoMedio() {
+		return precoMedio;
+	}
+
+	public void setPrecoMedio(PrecoMedio precoMedio) {
+		this.precoMedio = precoMedio;
 	}
 
 	@Override
@@ -71,7 +89,7 @@ public class Compra implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Compra other = (Compra) obj;
+		Valor other = (Valor) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -79,5 +97,6 @@ public class Compra implements Serializable {
 			return false;
 		return true;
 	}
+	
 	
 }
